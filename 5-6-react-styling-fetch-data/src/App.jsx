@@ -197,13 +197,34 @@ export default function App() {
   const [selectedUser, setSelectedUser] = useState(null);
 
   /* =========================================================
-     TODO 2.1 — FETCH USERS (Runs once)
+     TsetLoading(true)
+     setError(null).1 — FETCH USERS (Runs once)
      File: src/App.jsx
      ---------------------------------------------------------
      Implement fetch logic inside this useEffect.
      ========================================================= */
-  useEffect(() => {
+  useEffect(async () => {
     // TODO 2.1: Implement fetching users here (see lab instructions)
+    setLoading(true)
+    setError(null)
+
+    try{
+      const response = await response ("https://jsonplaceholder.typicode.com/users");
+       if(!response.ok){
+            throw new Error("failed to fetch all users")
+         }
+      const responseOk = await response.json();
+      setUsers(data)
+      setFilteredUsers(data)
+    }
+    
+    catch(excpetion){
+         setError(excpetion.message);
+    }
+    finally{
+      setLoading(false)
+    }
+    fetchUsers();
   }, []);
 
   /* =========================================================
@@ -214,7 +235,16 @@ export default function App() {
      Dependency array MUST be: [searchTerm, users]
      ========================================================= */
   useEffect(() => {
+   if(!searchTerm){
+      setFilteredUsers(users)
+   }
+   else{
+      const filtered =  users.filter((user) => 
+      user.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+   }
     // TODO 2.2: Implement filtering users here (see lab instructions)
+   setFilteredUsers(filtered)
   }, [searchTerm, users]);
 
   // Modal handlers (already complete)
