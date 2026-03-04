@@ -222,8 +222,8 @@ export default function App() {
       setFilteredUsers(data)
     }
     
-    catch(excpetion){
-         setError(excpetion.message);
+    catch(err){
+         setError(err.message);
     }
     finally{
       setLoading(false)
