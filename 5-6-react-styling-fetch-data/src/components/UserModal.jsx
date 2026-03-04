@@ -20,10 +20,10 @@ function UserModal({ show, user, onHide }) {
          {user.name.chatAt(0)}
       </div>
 
-      <p><strong>Name:</strong> { TODO }</p>
-      <p><strong>Email:</strong> { TODO }</p>
-      <p><strong>Phone:</strong> { TODO }</p>
-      <p><strong>Website:</strong> { TODO }</p>
+      <p><strong>Name:</strong> {user.name}</p>
+      <p><strong>Email:</strong> {user.email}</p>
+      <p><strong>Phone:</strong> {user.phone}</p>
+      <p><strong>Website:</strong> {user.website}</p>
    </Modal.Body>
 
    <Modal.Footer>
