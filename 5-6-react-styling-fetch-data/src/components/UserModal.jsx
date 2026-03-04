@@ -11,13 +11,13 @@ function UserModal({ show, user, onHide }) {
    >
    <Modal.Header closeButton>
       <Modal.Title>
-         {UserDetails}
+         User Details
       </Modal.Title>
    </Modal.Header>
 
    <Modal.Body>
       <div className="user-avatar-large">
-         {user.name.chatAt(0)}
+         {user.name.charAt(0)}
       </div>
 
       <p><strong>Name:</strong> {user.name}</p>
