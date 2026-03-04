@@ -203,12 +203,14 @@ export default function App() {
      ---------------------------------------------------------
      Implement fetch logic inside this useEffect.
      ========================================================= */
-  useEffect(async () => {
+   
+  useEffect(() => {
     // TODO 2.1: Implement fetching users here (see lab instructions)
-    setLoading(true)
-    setError(null)
-
+    
+   const data = async () => {
     try{
+      setLoading(true)
+      setError(null)
       const response = await response ("https://jsonplaceholder.typicode.com/users");
        if(!response.ok){
             throw new Error("failed to fetch all users")
@@ -224,6 +226,7 @@ export default function App() {
     finally{
       setLoading(false)
     }
+   };
     fetchUsers();
   }, []);
 
