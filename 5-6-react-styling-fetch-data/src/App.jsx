@@ -211,7 +211,7 @@ export default function App() {
     try{
       setLoading(true)
       setError(null)
-      const response = await response ("https://jsonplaceholder.typicode.com/users");
+      const response = await fetch("https://jsonplaceholder.typicode.com/users");
        if(!response.ok){
             throw new Error("failed to fetch all users")
          }
